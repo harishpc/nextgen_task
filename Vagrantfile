@@ -19,16 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       master.vm.network "private_network", ip: "192.168.50.4"
       master.vm.provision "ansible" do |ansible|
           ansible.playbook = "master.yml"
-      end
-  end
-
-  config.vm.define "slave" do |slave|
-      slave.vm.box = "precise32"
-      slave.vm.box_url = "http://files.vagrantup.com/precise32.box"
-      slave.vm.hostname = "slave"
-      slave.vm.network "private_network", ip: "192.168.50.5"
-      slave.vm.provision "ansible" do |ansible|
-          ansible.playbook = "slave.yml"
+	  ansible.sudo = true
       end
   end
 
