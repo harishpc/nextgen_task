@@ -1,4 +1,0 @@
----
-- hosts: vagrant
-  roles:
-    - test.jenkins
